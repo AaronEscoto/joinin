@@ -1,60 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Joinin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- dropdown menu stuff -->
+
+</head>
+<style>
+.navbar-default{
+    background-color: transparent;
+    border-color: transparent;
+    color: white;
+}
+.control-label{
+    color:#33334C;
+}
+
+.signin{
+    background-color:#FEC503;
+}
+
+.signin:focus{
+    background-color:#FEC503;
+}
+
+.signin:active{
+    background-color:#FEC503;
+}
+</style>
+<body id="page-top" class="index">
+
 <div class="row">
-  <div class="col-md-offset-4 col-md-4">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <div class="form-module" style="padding-top: 200px;">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div id="edit-style" style="padding-left: 200px;">
+    <h3>Edit <%= resource_name.to_s.humanize %></h3>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :email, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.email_field :email, autofocus: true, class:'form-control' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :password, class: 'col-sm-2 control-label' %> <i>(leave blank if you don't want to change it)</i>
+        <div class="col-sm-6">
+          <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autocomplete: "off" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "off" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :current_password, class: 'col-sm-2 control-label' %> <i>(we need your current password to confirm your changes)</i>
+        <div class="col-sm-6">
+          <%= f.password_field :current_password, autocomplete: "off", class:'form-control' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :about_me %><br />
-    <%= f.text_area :about_me, size:"40x10", autocomplete: "off" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :first_name, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.text_field :first_name, autocomplete: "off", class:'form-control' %>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+      <div class="form-group">
+        <%= f.label :last_name, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.text_field :last_name, autocomplete: "off", class:'form-control' %>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <%= f.label :about_me, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-6">
+          <%= f.text_area :about_me, size: "40x10", autocomplete: "off", class:'form-control' %>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+          <%= f.submit "Update", class: "btn btn-primary signin" %>
+        </div>
+      </div>
 
-<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    <% end %>
 
-<%= button_to "Back", :back %>
+    <div id="edit-style" style="padding-left: 200px;">
+    <h5> Cancel? </h5>
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 
+    <%= button_to "Back", :back %>
+    </div>
   </div>
 </div>
 

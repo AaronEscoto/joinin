@@ -58,118 +58,61 @@
 </style>
 <body id="page-top" class="index">
 
-<!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">joinin</a>
-            </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">How it works</a>
-                    </li>
-                    <li>
-                        <!--<a class="page-scroll" href="/users/sign_in">signin</a>-->
-
-                        <!-- If we want to use a dropdown menu -->
-                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">signin<span class="caret"></span></a>
-                        <ul id="dropdown-login" class="dropdown-menu" style="padding: 5px 10px 5px 10px;">
-                            <%= form_for(:user, :url => session_path(:user)) do |f| %>
-                            <li>
-                                <div class="control-group">
-                                    <%= f.label :email, :class => "control-label" %>
-                                    <div class ="controls">
-                                        <%= f.text_field :email %>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="control-group">
-                                    <%= f.label :password, :class => "control-label" %>
-                                    <div class="controls">
-                                        <%= f.password_field :password %>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="control-group">
-                                    <%= f.label :remember_me, :class => "control-label" %>
-                                    <div class ="controls">
-                                        <%= f.check_box :remember_me %>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <%= f.submit "sign in", :class => "btn btn-primary signin" %>
-                            </li>
-                            <% end %>
-                        </ul>   
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-
-    
-    </nav>
-
-<div class="row">
-  <div class="col-md-offset-4 col-md-4" style="padding-top:200px;">
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <div class="form-module" style="padding-top: 200px;">
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autocomplete: "off" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= f.email_field :email, class: "form-control", autofocus: true %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "off" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :first_name, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :first_name, autocomplete: "off", class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :last_name, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :last_name, autocomplete: "off", class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :password, class: "col-sm-2 control-label" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <div class="col-sm-6">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+    <div class="form-group">
+      <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <%= f.submit "Sign up", class: "btn btn-primary signin" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-6">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
-
-</div>
-</div>
