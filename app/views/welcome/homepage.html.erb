@@ -31,12 +31,29 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- dropdown menu stuff -->
+
 </head>
 <style>
 .navbar-default{
     background-color: transparent;
     border-color: transparent;
     color: white;
+}
+.control-label{
+    color:#33334C;
+}
+
+.signin{
+    background-color:#FEC503;
+}
+
+.signin:focus{
+    background-color:#FEC503;
+}
+
+.signin:active{
+    background-color:#FEC503;
 }
 </style>
 <body id="page-top" class="index">
@@ -65,10 +82,45 @@
                         <a class="page-scroll" href="#contact">How it works</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#signin">signin</a>
+                        <!--<a class="page-scroll" href="/users/sign_in">signin</a>-->
+
+                        <!-- If we want to use a dropdown menu -->
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">signin<span class="caret"></span></a>
+                        <ul id="dropdown-login" class="dropdown-menu" style="padding: 5px 10px 5px 10px;">
+                            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                            <li>
+                                <div class="control-group">
+                                    <%= f.label :email, :class => "control-label" %>
+                                    <div class ="controls">
+                                        <%= f.text_field :email %>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="control-group">
+                                    <%= f.label :password, :class => "control-label" %>
+                                    <div class="controls">
+                                        <%= f.password_field :password %>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="control-group">
+                                    <%= f.label :remember_me, :class => "control-label" %>
+                                    <div class ="controls">
+                                        <%= f.check_box :remember_me %>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <%= f.submit "sign in", :class => "btn btn-primary signin" %>
+                            </li>
+                            <% end %>
+                        </ul>   
                     </li>
-                 
-                    
+                    <li>
+                        <a class="page-scroll" href="/users/sign_up">SignUp</a>
+                    </li>    
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
@@ -77,6 +129,8 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
+
+    
     </nav>
 
     <!-- Header -->
