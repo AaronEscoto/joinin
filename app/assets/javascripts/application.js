@@ -16,8 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-<script>
-    $('#dropdown-login').click(function(e) {
-     e.stopPropagation();
-        $('.dropdown-toggle').dropdown();
-    });
+$('#dropdown-login').click(function(e) {
+ e.stopPropagation();
+    $('.dropdown-toggle').dropdown();
+});
