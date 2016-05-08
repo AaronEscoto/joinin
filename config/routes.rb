@@ -9,7 +9,7 @@ Rails.application.routes.draw do
    root 'welcome#homepage'
 
   devise_scope :user do
-    delete "/users/logout" => "devise/sessions#destroy"
+    delete "/users/sign_out" => "devise/sessions#destroy"
   end
 
 end
