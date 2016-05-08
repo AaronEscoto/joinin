@@ -17,5 +17,6 @@
 //= require_tree .
 
 $('#dropdown-login').click(function(e) {
- e.stopPropagation(););
+ e.stopPropagation();
     $('.dropdown-toggle').dropdown();
+});
