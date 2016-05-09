@@ -13,7 +13,6 @@
 //= require bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 $('#dropdown-login').click(function(e) {
