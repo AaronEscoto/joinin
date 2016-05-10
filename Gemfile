@@ -37,6 +37,9 @@ gem 'tzinfo-data'
 # devise for sign-in, sign-up authentication
 gem 'devise'
 
+# geocoder for determining user's location and providing address services
+gem 'geocoder'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

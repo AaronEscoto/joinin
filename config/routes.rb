@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :matchmakers
   devise_for :users
   get 'welcome/homepage'
   get 'welcome/matchmaking'

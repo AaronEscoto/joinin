@@ -193,10 +193,19 @@
     
     </section>
 
+    <center>
+      <%= form_tag matchmakers_path, :method => :get do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search Near", :name => nil %>
+          </p>
+      <% end %>
+    </center>
+
     <!-- Clients Aside -->
    <center>
      <% if user_signed_in? %>
-     <a data-toggle="modal" href="#squarespaceModal" class="btn btn-xl">Start Matchmaking!</a>
+     <a data-toggle="modal" href="matchmakers_path" class="btn btn-xl">Start Matchmaking!</a>
      <% else %>
      <a data-toggle="modal" href="/users/sign_up" class="btn btn-xl">Start Matchmaking!</a>
      <% end %>
