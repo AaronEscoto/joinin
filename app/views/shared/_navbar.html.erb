@@ -1,3 +1,18 @@
+    <!-- NAVBAR STYLING -->
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../assets/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../assets/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+
 <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,9 +32,6 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#howitworks">How it works</a>
-                    </li>
                     <% if user_signed_in? %>
                     <li>
                       <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
@@ -36,7 +48,7 @@
                           <ul id="dropdown-login" class="dropdown-menu" style="padding: 5px 10px 5px 10px;">
                               <%= form_for(:user, :url => session_path(:user)) do |f| %>
                               <li>
-                                  <div class="control-group">
+                                  <div class="control-group" style="color:black;">
                                       <%= f.label :email, :class => "control-label" %>
                                       <div class ="controls">
                                           <%= f.text_field :email %>
@@ -44,7 +56,7 @@
                                   </div>
                               </li>
                               <li>
-                                  <div class="control-group">
+                                  <div class="control-group" style="color:black;">
                                       <%= f.label :password, :class => "control-label" %>
                                       <div class="controls">
                                           <%= f.password_field :password %>
@@ -69,9 +81,6 @@
                         <a class="page-scroll" href="/users/sign_up">Sign Up</a>
                     </li>
                     <% end %>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
