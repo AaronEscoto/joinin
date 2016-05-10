@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @matchmaker.uid %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @matchmaker.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @matchmaker.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @matchmaker.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_matchmaker_path(@matchmaker) %> |
+<%= link_to 'Back', matchmakers_path %>
