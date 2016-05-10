@@ -223,6 +223,10 @@ fieldset[disabled] .btn-xl.active {
     font-size: 1.5em;
   }
 }
+.gifpos{
+    padding:100px;
+   
+}
 header {
   background-image: url('../assets/header-bg.jpg');
   background-repeat: none;
