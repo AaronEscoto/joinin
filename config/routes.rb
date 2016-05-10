@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'welcome/homepage'
+  get 'welcome/matchmaking'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
    root 'welcome#homepage'
 
   devise_scope :user do
-    delete "/users/sign_out" => "devise/sessions#destroy"
+    delete "/users/logout" => "devise/sessions#destroy"
   end
 
 end
