@@ -45,14 +45,17 @@
 }
 
 .signin{
+    color: black;
     background-color:#FEC503;
 }
 
 .signin:focus{
+        color: black;
     background-color:#FEC503;
 }
 
 .signin:active{
+        color: black;
     background-color:#FEC503;
 }
 </style>
@@ -111,7 +114,11 @@
 
     <!-- Clients Aside -->
    <center>
+     <% if user_signed_in? %>
      <a data-toggle="modal" href="#squarespaceModal" class="btn btn-xl">Start Matchmaking!</a>
+     <% else %>
+     <a data-toggle="modal" href="/users/sign_up" class="btn btn-xl">Start Matchmaking!</a>
+     <% end %>
 	
 
     </center>
