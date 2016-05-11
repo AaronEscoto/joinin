@@ -1,6 +1,5 @@
 class CreateMatchmakers < ActiveRecord::Migration
   def change
-    drop_table :matchmakers
     create_table :matchmakers do |t|
       t.integer :uid
       t.string :address
