@@ -10,20 +10,13 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <script src="//js.pusher.com/3.0/pusher.min.js"></script>
 
-  <!-- Downloaded in step 1 -->
-  <script src="pusher-realtime-chat-widget/src/js/PusherChatWidget.js"></script>
-  <link href="pusher-realtime-chat-widget/src/pusher-chat.css" rel="stylesheet" />
-  <script>
-  	$(function() {     
-	  var pusher = new Pusher('9d144b93bf28de8dcee1');
-	  var chatWidget = new PusherChatWidget(pusher, {
-	    chatEndPoint: 'pusher-realtime-chat-widget/src/ruby-sinatra/chat.rb'
-	  });
-	});
-  </script>
-
 </head>
 <body>
+
+  <!-- Devise notices -->
+  <b><p class="notice"><%= notice %></p></b>
+  <b></b><p class="alert"><%= alert %></p></b>
+
 	<% if !(current_page?('/')) %>
 			<%= render 'shared/navbar' %>
 	<% end %>

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :matchmakers
+  resources :locations, :only => [:show, :new, :create, :edit, :update, :destroy]
+  get 'locations/new'
+  
+
   devise_for :users
   get 'welcome/homepage'
   get 'welcome/matchmaking'
