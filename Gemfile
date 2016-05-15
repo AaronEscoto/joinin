@@ -38,11 +38,14 @@ gem 'tzinfo-data'
 # devise for sign-in, sign-up authentication
 gem 'devise'
 
+# simple_form for easier form generation
+gem 'simple_form'
+
 # geocoder for determining user's location and providing address services
-gem 'geocoder'
+# gem 'geocoder'
 
 # let's try out pusher for real-time because we should i guess
-gem 'pusher'
+# gem 'pusher'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
