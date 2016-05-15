@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515025036) do
+ActiveRecord::Schema.define(version: 20160515223401) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +41,29 @@ ActiveRecord::Schema.define(version: 20160515025036) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "address"
+    t.text     "body"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "subscriptions", ["event_id"], name: "index_subscriptions_on_event_id"
+  add_index "subscriptions", ["follower_id"], name: "index_subscriptions_on_follower_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
