@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :events, :only => [:show, :new, :create, :edit, :update, :destroy]
   resources :locations, :only => [:show, :new, :create, :edit, :update, :destroy]
   get 'locations/new'
+  get 'events/new'
   
 
   devise_for :users
