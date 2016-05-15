@@ -41,6 +41,9 @@ gem 'devise'
 # geocoder for determining user's location and providing address services
 gem 'geocoder'
 
+# let's try out pusher for real-time because we should i guess
+gem 'pusher'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
