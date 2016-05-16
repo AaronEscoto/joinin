@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-  get 'posts/new'
-  get 'posts/create'
-
+  resources :posts
   resources :comments
-  resources :events, :only => [:show, :new, :create, :edit, :update, :destroy]
-  resources :locations, :only => [:show, :new, :create, :edit, :update, :destroy]
-  get 'locations/new'
-  get 'events/new'
 
   devise_for :users
-  get 'welcome/homepage'
+    get 'welcome/homepage'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

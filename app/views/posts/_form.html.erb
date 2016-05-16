@@ -1,0 +1,9 @@
+<%= simple_form_for(@post) do |f| %>
+    <%= f.input :title, autofocus: true %>
+    <%= f.input :address %>
+    <%= f.input :start_time, as: :datetime %>
+    <%= f.input :end_time, as: :datetime %>
+    <%= f.text_area :body, class: 'form-control',
+                    placeholder: 'Event description' %>
+    <%= f.submit :post, class: 'btn btn-primary'%>
+<% end %>
