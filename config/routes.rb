@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   match "/posts/new_comment" => "posts#new_comment", :as => "new_comment_to_posts", :via => [:post]
 
   resources :comments
-  devise_for :users
-    get 'welcome/homepage'
+
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
