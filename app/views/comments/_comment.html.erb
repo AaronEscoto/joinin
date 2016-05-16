@@ -2,11 +2,10 @@
   <span id="<%= comment.id %>">
     
     <h5>Posted on: <%= comment.created_at.to_time.strftime("%b %d, %Y on %I:%M %p") %>
-    <p> By: <%= comment.user_id %> (This should be the user's name)</p>
-     </h5>
+    <p> By: <%= comment.user.first_name %> </p>
+    </h5>
 
     <p> <%= comment.comment %> </p>
-      <%= link_to comment, method: :delete, remote: true %>
     
   </span>
 <% end %>

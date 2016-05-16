@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user
   before_action :find_commentable, only: :create
   respond_to :js
 
@@ -21,5 +22,9 @@ class CommentsController < ApplicationController
   def find_commentable
     @commentable_type = params[:commentable_type].classify
     @commentable = @commentable_type.constantize.find(params[:commentable_id])
+  end
+
+  def set_user
+    @user = current_user
   end
 end

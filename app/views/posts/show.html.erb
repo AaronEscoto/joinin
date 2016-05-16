@@ -1,24 +1,27 @@
+
+<div class="container">
+
+
+
 <div class="page-header">
 <h1>Post</h1>
 </div>
 
-<div>
-  <p> <%= @post.title %> </p>
-  <p> <%= @post.address %> </p>
-  <p> <%= @post.start_time %></p>
-  <p> <%= @post.end_time %></p>
-  <p> <%= @post.body %> </p>
-</div>
+  <h4 class="service-heading"><%= @post.title %> </h4>
+  <p class="text-muted"> <%= @post.address %> </p>
+  <p class="text-muted"> <%= @post.start_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
+  <p class="text-muted"> <%= @post.end_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
+  <p class="text-muted"> <%= @post.body %> </p>
 
-<div>
+  <h4> Comments</h4>
+
+
+  <%= render :partial => 'comments/comment', :locals => {:post => @post} %>
+  <%= render :partial => 'comments/form', :locals => {:commentable => @post} %>
+
   <%= link_to "Follow", follow_post_path, class: "btn btn-default" %>
-  <%= link_to "Back", posts_path, class: "btn btn-default" %>
+	<%= link_to "Back", posts_path, class: "btn btn-default" %>
+
 </div>
 
-<div>
-  <%= form_tag "/posts/new_comment" do %>
-      <%= hidden_field_tag "id", @post.id %>
-      <%= text_area_tag "comment[comment]" %>
-      <p> <%= submit_tag "Post Comment" %> </p>
-  <% end %>
-</div>
+
