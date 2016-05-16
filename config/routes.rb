@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
 
+  post 'posts/follow'
   devise_for :users
     get 'welcome/homepage'
 

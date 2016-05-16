@@ -41,6 +41,12 @@ gem 'devise'
 # simple_form for easier form generation
 gem 'simple_form'
 
+# acts_as_follower in order to implement models following each other
+gem 'acts_as_follower'
+
+# acts_as_commentable in order to implement commenting for posts
+gem 'acts_as_commentable'
+
 # geocoder for determining user's location and providing address services
 # gem 'geocoder'
 
