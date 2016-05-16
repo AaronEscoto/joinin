@@ -13,6 +13,13 @@
     <p class="text-muted"> <%= @post.end_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
     <p class="text-muted"> <%= @post.body %> </p>
 
+    <h4> Comments</h4>
+    
+    
+    <%= render :partial => 'comments/comment', :locals => {:post => @post} %>
+
+    <%= render :partial => 'comments/form', :locals => {:commentable => @post} %>
+
     <%= link_to "Follow", follow_post_path, class: "btn btn-default" %>
 	<%= link_to "Home", posts_path, class: "btn btn-default" %>
 
