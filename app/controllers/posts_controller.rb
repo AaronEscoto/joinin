@@ -39,13 +39,19 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if current_user
-      if @post.followed_by?(current_user)
-        redirect_to :back, :notice => "You are already following this post"
-      else
-        current_user.follow(@post)
-        RecommenderMailer.new_follower(@user).deliver if @user.notify_new_follower
-        redirect_to :back, :notice => "You successfully followed an event!"
-      end
+      current_user.follow(@post)
+      redirect_to :back, :notice => "You successfully followed an event!"
+    else
+      redirect_to :back, :notice => "You must <a href='/users/sign_in'>login</a> to follow that post."
+    end
+  end
+
+  def unfollow
+    @post = Post.find(params[:id])
+
+    if current_user
+        current_user.stop_following(@post)
+        redirect_to :back, :notice => "You successfully unfollowed an event!"
     else
       redirect_to :back, :notice => "You must <a href='/users/sign_in'>login</a> to follow that post."
     end
@@ -54,7 +60,7 @@ class PostsController < ApplicationController
   def new_comment
     @post = Post.find(params[:id])
     @post.comments << Post.new(comment_params)
-    redirect_to :action => :show, :id => @post
+    redirect_to :back
   end
 
   private

@@ -10,12 +10,14 @@ class CommentsController < ApplicationController
       comment.user = current_user
     end
     @comment.save
+    redirect_to :back
   end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment_id = params[:id]
     @comment.destroy
+    redirect_to :back
   end
 
   private
