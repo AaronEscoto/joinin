@@ -51,7 +51,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def new_comment
+    @post = Post.find(params[:id])
+    @post.comments << Post.new(comment_params)
+    redirect_to :action => :show, :id => @post
+  end
+
   private
+
+  def comment_params
+    params.require(:comment).permit!
+  end
 
   def post_params
     params.require(:post).permit(:title, :address, :start_time, :end_time)

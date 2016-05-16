@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
 
+  match "/posts/new_comment" => "posts#new_comment", :as => "new_comment_to_posts", :via => [:post]
+
   resources :comments
   devise_for :users
     get 'welcome/homepage'

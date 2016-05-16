@@ -10,5 +10,15 @@
   <p> <%= @post.body %> </p>
 </div>
 
-<%= link_to "Follow", follow_post_path, class: "btn btn-default" %>
-<%= link_to "Home", posts_path, class: "btn btn-default" %>
+<div>
+  <%= link_to "Follow", follow_post_path, class: "btn btn-default" %>
+  <%= link_to "Back", posts_path, class: "btn btn-default" %>
+</div>
+
+<div>
+  <%= form_tag "/posts/new_comment" do %>
+      <%= hidden_field_tag "id", @post.id %>
+      <%= text_area_tag "comment[comment]" %>
+      <p> <%= submit_tag "Post Comment" %> </p>
+  <% end %>
+</div>
