@@ -1,0 +1,30 @@
+<div>
+  <h1>This is the event postings page</h1>
+</div>
+<script type="text/javascript">
+  $(document).on("click", 'li', function() {
+    $.ajax({
+      url: "<%= follow_post_path %>", // Route to the Script Controller method
+      type: "GET",
+      dataType: "json",
+      data: { file_name: $(this).text() }, // This goes to Controller in params hash, i.e. params[:file_name]
+      complete: function() {},
+      success: function(data, textStatus, xhr) {
+      },
+      error: function() {
+        alert("Ajax error!")
+      }
+    });
+  });
+</script>
+
+<% @posts.each do |post| %>
+    <div class="panel panel-default">
+      <p> <%= post.title %> </p>
+      <p> <%= post.address %> </p>
+      <p> <%= post.start_time %></p>
+      <p> <%= post.end_time %></p>
+      <p> <%= post.body %> </p>
+      <li> Follow </li>
+    </div>
+<% end %>
