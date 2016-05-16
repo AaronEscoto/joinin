@@ -16,7 +16,7 @@
     <p class="text-muted"> <%= post.start_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
     <p class="text-muted"> <%= post.end_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
     <p class="text-muted"> <%= post.body %> </p>
-    <li class="text-muted"> Follow </li>
+    <%= link_to 'More Details', post %>
     </div>
   <% end %>
 </div>

@@ -6,14 +6,18 @@
     <schema name="" catalog=""/>
     <table name="comments" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="body" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="post_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR(50)" precision="0" scale="-1" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="comment" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="commentable_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="commentable_type" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
-      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="role" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12" def="J2NvbW1lbnRzJw=="/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
       <index name="index_comments_on_user_id" unique="true" columns="user_id"/>
-      <index name="index_comments_on_post_id" unique="true" columns="post_id"/>
+      <index name="index_comments_on_commentable_id" unique="true" columns="commentable_id"/>
+      <index name="index_comments_on_commentable_type" unique="true" columns="commentable_type"/>
     </table>
     <table name="events" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
@@ -23,6 +27,19 @@
       <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
+    </table>
+    <table name="follows" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="followable_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="followable_type" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="follower_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="follower_type" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="blocked" sqlType="BOOLEAN" precision="0" scale="-1" nullable="false" jdbcType="4" def="J2Yn"/>
+      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+      <index name="fk_followables" unique="true" columns="followable_id,followable_type"/>
+      <index name="fk_follows" unique="true" columns="follower_id,follower_type"/>
     </table>
     <table name="locations" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
@@ -55,16 +72,6 @@
     <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
       <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-    </table>
-    <table name="subscriptions" schema="" catalog="" type="TABLE">
-      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="event_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
-      <column name="follower_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
-      <column name="created_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="updated_at" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <primary-key columns="id"/>
-      <index name="index_subscriptions_on_follower_id" unique="true" columns="follower_id"/>
-      <index name="index_subscriptions_on_event_id" unique="true" columns="event_id"/>
     </table>
     <table name="users" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>

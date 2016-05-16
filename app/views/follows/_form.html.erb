@@ -1,5 +1,11 @@
 <div class="follow">
-    <%= form_tag follow_path(post_id: @post.id), method: :post, remote: true do %>
-        <%= button_tag 'follow', class: 'btn btn-success' %>
-    <% end %>
+  <% if @post.followed_by?(@user) %>
+      <%= form_tag unfollow_path(post_id: @post), method: :post, remote: true do %>
+          <%= button_tag 'unfollow', class: 'btn btn-primary' %>
+      <% end %>
+  <% else %>
+      <%= form_tag follow_path(post_id: @post), method: :post, remote: true do %>
+          <%= button_tag 'follow', class: 'btn btn-success' %>
+      <% end %>
+  <% end %>
 </div>

@@ -35,6 +35,22 @@ class PostsController < ApplicationController
     end
   end
 
+  def follow
+    @post = Post.find(params[:id])
+
+    if current_user
+      if @post.followed_by?(current_user)
+        redirect_to :back, :notice => "You are already following this post"
+      else
+        current_user.follow(@post)
+        RecommenderMailer.new_follower(@user).deliver if @user.notify_new_follower
+        redirect_to :back, :notice => "You successfully followed an event!"
+      end
+    else
+      redirect_to :back, :notice => "You must <a href='/users/sign_in'>login</a> to follow that post."
+    end
+  end
+
   private
 
   def post_params

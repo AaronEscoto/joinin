@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :comments
 
-  post 'posts/follow'
+  resources :posts do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
+
+  resources :comments
   devise_for :users
     get 'welcome/homepage'
 
