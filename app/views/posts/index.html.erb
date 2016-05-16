@@ -9,6 +9,6 @@
       <p> <%= post.start_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
       <p> <%= post.end_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
       <p> <%= post.body %> </p>
-      <li> Follow </li>
+      <% render partial: 'follows/form' %>
     </div>
 <% end %>

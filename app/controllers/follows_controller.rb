@@ -3,12 +3,12 @@ class FollowsController < ApplicationController
   respond_to :js
 
   def create
-    @user = User.find(params[:user_id])
-    current_user.follow(@user)
+    @post = Post.find(params[:post_id])
+    current_user.follow(@post)
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    current_user.stop_following(@user)
+    @post = Post.find(params[:post_id])
+    current_user.stop_following(@post)
   end
 end

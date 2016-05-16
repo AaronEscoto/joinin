@@ -35,10 +35,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def follow
-    current_user.follow(@post)
-  end
-
   private
 
   def post_params
