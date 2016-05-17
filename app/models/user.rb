@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :subscriptions, foreign_key: :follower_id, dependent: :destroy
-  has_many :events, through: :subscriptions
   has_many :posts, dependent: :destroy
   has_many :comments
   acts_as_follower
