@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.save
     #redirect_to :back
     respond_to do |format|
-      format.js {render inline: "location.reload();" }
+    format.js {render inline: "location.reload();" }
 end
   end
 
