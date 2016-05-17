@@ -1,6 +1,5 @@
 class CreateComments < ActiveRecord::Migration
   def self.up
-    drop_table :subscriptions
     create_table :comments do |t|
       t.string :title, :limit => 50, :default => "" 
       t.text :comment
