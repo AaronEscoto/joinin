@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
   def events
     #Uncomment for showing only subscribed posts
     @posts = current_user.all_following
-    @your_posts = user.posts
+    @your_posts = current_user.posts
   end
 
   private
