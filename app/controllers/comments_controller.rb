@@ -10,7 +10,10 @@ class CommentsController < ApplicationController
       comment.user = current_user
     end
     @comment.save
-    redirect_to :back
+    #redirect_to :back
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+end
   end
 
   def destroy
