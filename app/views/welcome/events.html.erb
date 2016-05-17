@@ -37,7 +37,7 @@
           <p class="text-muted"> <%= post.address %> </p>
           <p class="text-muted"> <%= post.body %> </p>
           <%= link_to 'More Details', post %>
-          <%= link_to 'Delete Event', post, :method => :delete, :confirm => "Are you sure?" %>
+          <%= link_to 'Delete Event', {:controller=>:posts,:action=>:destroy, :id=>post}, :method=>:delete %>
         </div>
     <% end %>
   </div>
