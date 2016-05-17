@@ -6,10 +6,10 @@
 <div class="page-header">
 <h1><%= @post.title %></h1>
 </div>
-  <p class="text-muted"> <%= @post.address %> </p>
+  <p class="text-muted"> Address: <%= @post.address %> </p>
   <p class="text-muted"> Start Time : <%= @post.start_time.to_time.strftime("%b %d, %Y on %I:%M %p")  %></p>
   <p class="text-muted"> End Time : <%= @post.end_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
-  <p class="text-muted"> <%= @post.body %> </p>
+  <p class="text-muted"> Description: <%= @post.body %> </p>
 
   <h4> Comments</h4>
 
