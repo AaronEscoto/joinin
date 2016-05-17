@@ -7,8 +7,8 @@
 <h1><%= @post.title %></h1>
 </div>
   <p class="text-muted"> <%= @post.address %> </p>
-  <p class="text-muted"> <%= @post.start_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
-  <p class="text-muted"> <%= @post.end_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
+  <p class="text-muted"> Start Time : <%= @post.start_time.to_time.strftime("%b %d, %Y on %I:%M %p")  %></p>
+  <p class="text-muted"> End Time : <%= @post.end_time.to_time.strftime("%b %d, %Y on %I:%M %p") %></p>
   <p class="text-muted"> <%= @post.body %> </p>
 
   <h4> Comments</h4>

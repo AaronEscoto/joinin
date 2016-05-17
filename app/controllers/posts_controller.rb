@@ -4,10 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-
-    #Uncomment for showing only subscribed posts
-    #user_ids = current_user.event_user_ids
-    # @posts = Post.where(user_id: user_ids).order("created_at DESC")
   end
 
   def show
@@ -40,7 +36,7 @@ class PostsController < ApplicationController
 
     if current_user
       current_user.follow(@post)
-      redirect_to :back, :notice => "You successfully followed an event!"
+      redirect_to :back, :notice => "You successfully joined into an event!"
     else
       redirect_to :back, :notice => "You must <a href='/users/sign_in'>login</a> to follow that post."
     end
@@ -51,7 +47,7 @@ class PostsController < ApplicationController
 
     if current_user
         current_user.stop_following(@post)
-        redirect_to :back, :notice => "You successfully unfollowed an event!"
+        redirect_to :back, :notice => "You successfully backed out of an event"
     else
       redirect_to :back, :notice => "You must <a href='/users/sign_in'>login</a> to follow that post."
     end
@@ -70,7 +66,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :address, :start_time, :end_time)
+    params.require(:post).permit(:title, :address, :start_time, :end_time, :body)
   end
 
   def set_user

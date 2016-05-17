@@ -1,11 +1,11 @@
 <div class="follow">
   <% if @post.followed_by?(@user) %>
       <%= form_tag unfollow_post_path(post_id: @post), method: :post, remote: true do %>
-          <%= link_to "Unfollow", unfollow_post_path, class: "btn btn-default" %>
+          <%= link_to "BackOut", unfollow_post_path, class: "btn btn-default" %>
       <% end %>
   <% else %>
       <%= form_tag follow_post_path(post_id: @post), method: :post, remote: true do %>
-          <%= link_to "Follow", follow_post_path, class: "btn btn-default" %>
+          <%= link_to "JoinIn", follow_post_path, class: "btn btn-default" %>
       <% end %>
   <% end %>
 </div>
